@@ -25,7 +25,7 @@ class TwoFAApp:
         self._build_ui()
 
     def _build_ui(self):
-        pad = {"padx": 28, "pady": (0, 0)}
+        padx = 28
 
         # --- 2FA Secret ---
         secret_label = tk.Frame(self.root, bg=BG)
@@ -54,7 +54,7 @@ class TwoFAApp:
             wrap="word",
             fg="#999999",
         )
-        self.secret_text.pack(fill="x", **pad, pady=(0, 12))
+        self.secret_text.pack(fill="x", padx=padx, pady=(0, 12))
         self.secret_text.insert("1.0", self._secret_placeholder)
         self.secret_text.bind("<FocusIn>", self._on_secret_focus_in)
         self.secret_text.bind("<FocusOut>", self._on_secret_focus_out)
@@ -91,7 +91,7 @@ class TwoFAApp:
             fg="#999999",
             state="disabled",
         )
-        self.code_text.pack(fill="x", **pad, pady=(0, 12))
+        self.code_text.pack(fill="x", padx=padx, pady=(0, 12))
 
         self._make_button("📋  Copy", self.copy_code).pack(
             fill="x", padx=28, pady=(0, 28)
